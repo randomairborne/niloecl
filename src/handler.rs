@@ -50,7 +50,7 @@ macro_rules! all_the_tuples {
 macro_rules! impl_handler {
 ([$($ty:ident),*]) => {
     #[allow(non_snake_case, unused_mut)]
-    impl<F, Fut, S, R, M, $($ty,)*> Handler<S, InteractionResponse, (M, $($ty,)*)> for F
+    impl<F, Fut, S, R, $($ty,)*> Handler<S, InteractionResponse, ($($ty,)*)> for F
             where
             F: Fn($($ty,)*) -> Fut + Clone + Send + Sync + 'static,
             Fut: Future<Output = R> + Send,
