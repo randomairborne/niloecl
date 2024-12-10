@@ -10,6 +10,13 @@
 mod extract;
 mod handler;
 mod into_response;
+mod into_response_impls;
+
+#[cfg(feature = "modal_submit")]
+mod modal_submit_extractor;
+
+#[cfg(feature = "modal_submit")]
+pub use modal_submit_extractor::{ModalSubmit, ModalSubmitError};
 
 pub use extract::State;
 pub use handler::{make as make_handler, FromRequest, Handler, HandlerFunction};

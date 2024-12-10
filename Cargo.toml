@@ -1,6 +1,6 @@
 [package]
 name = "niloecl"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "An implementation of the axum handler pattern for twilight interactions"
 license = "MIT OR Apache-2.0"
@@ -11,3 +11,11 @@ categories = ["rust-patterns"]
 
 [dependencies]
 twilight-model = "0.16.0-rc.1"
+twilight-util = { version = "0.16.0-rc.1", features = ["builder"] }
+
+serde = { version = "1", optional = true }
+serde_json = { version = "1", optional = true }
+
+[features]
+modal_submit = ["serde"]
+serde = ["dep:serde", "dep:serde_json"]
