@@ -3,6 +3,7 @@ on:
   pull_request:
   workflow_dispatch:
   workflow_call:
+  push:
 
 jobs:
   build:
