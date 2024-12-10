@@ -1,4 +1,7 @@
-use twilight_model::{channel::message::MessageFlags, http::interaction::{InteractionResponse, InteractionResponseType}};
+use twilight_model::{
+    channel::message::MessageFlags,
+    http::interaction::{InteractionResponse, InteractionResponseType},
+};
 use twilight_util::builder::{embed::EmbedBuilder, InteractionResponseDataBuilder};
 
 use crate::IntoResponse;

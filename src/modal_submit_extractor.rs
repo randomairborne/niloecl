@@ -9,9 +9,7 @@ pub struct ModalSubmit<T> {
     pub data: T,
 }
 
-impl<S: Sync, T: for<'a> serde::Deserialize<'a>> FromRequest<S>
-    for ModalSubmit<T>
-{
+impl<S: Sync, T: for<'a> serde::Deserialize<'a>> FromRequest<S> for ModalSubmit<T> {
     type Rejection = ModalSubmitError;
 
     async fn from_request(req: &mut Interaction, _: &S) -> Result<Self, Self::Rejection> {
