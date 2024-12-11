@@ -19,3 +19,17 @@ impl<S: Clone + Sync> FromRequest<S> for State<S> {
         Ok(Self(state.clone()))
     }
 }
+
+impl<S: Sync, T: FromRequest<S>> FromRequest<S> for Option<T> {
+    type Rejection = Infallible;
+    async fn from_request(req: &mut Interaction, state: &S) -> Result<Self, Self::Rejection> {
+        Ok(T::from_request(req, state).await.ok())
+    }
+}
+
+impl<S: Sync, T: FromRequest<S>> FromRequest<S> for Result<T, T::Rejection> {
+    type Rejection = T::Rejection;
+    async fn from_request(req: &mut Interaction, state: &S) -> Result<Self, Self::Rejection> {
+        Ok(T::from_request(req, state).await)
+    }
+}
