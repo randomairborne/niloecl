@@ -11,7 +11,7 @@ categories = ["rust-patterns"]
 
 [dependencies]
 twilight-model = "0.16.0-rc.1"
-twilight-util = { version = "0.16.0-rc.1", features = ["builder"] }
+twilight-util = { version = "0.17.0", features = ["builder"] }
 
 serde = { version = "1", optional = true }
 serde_json = { version = "1", optional = true }
