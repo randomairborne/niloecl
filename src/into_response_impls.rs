@@ -6,6 +6,7 @@ use twilight_util::builder::{embed::EmbedBuilder, InteractionResponseDataBuilder
 
 use crate::IntoResponse;
 
+#[allow(unused)]
 pub struct BasicErrorReport<T>(pub T);
 
 impl<T: std::fmt::Display> IntoResponse for BasicErrorReport<T> {
